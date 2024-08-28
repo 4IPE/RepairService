@@ -1,0 +1,60 @@
+
+services:
+
+  repair-service:
+    build: repair-service
+    image: repair-service-img
+    container_name: repair-service-con
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://repair-db:5432/requestData
+      - SPRING_DATASOURCE_USERNAME=dbuser
+      - SPRING_DATASOURCE_PASSWORD=12345
+    depends_on:
+      - repair-db
+    restart: "on-failure"
+
+  repair-db:
+    image: postgres:16.1
+    container_name: repair-db-con
+    ports:
+      - "6542:5432"
+    environment:
+        - POSTGRES_PASSWORD=12345
+        - POSTGRES_USER=dbuser
+        - POSTGRES_DB=requestData
+    healthcheck:
+        test: pg_isready -q -d $$POSTGRES_DB -U $$POSTGRES_USER
+        timeout: 5s
+        interval: 5s
+        retries: 10
+    volumes:
+        - repair-db-data:/var/lib/postgresql/data
+
+  repair-gateway:
+    build: repair-gateway
+    image: repair-gateway-img
+    container_name: repair-gateway-con
+    ports:
+      - "8080:8080"
+    depends_on:
+      - repair-service
+    restart: "on-failure"
+    networks:
+      - repair-network
+
+  repair-frontend:
+      image: react-repair-img
+      build: repair-visual
+      container_name: repair-visual-con
+      ports:
+        - "3000:80"
+      networks:
+        - repair-network
+
+volumes:
+  repair-service-data:
+networks:
+  repair-network:
+    driver: bridge
