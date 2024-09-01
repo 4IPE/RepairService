@@ -1,0 +1,76 @@
+.review-slider-container {
+    position: relative;
+    width: 70%; /* Ширина контейнера 70% от ширины экрана */
+    height: auto; /* Высота слайдера зависит от контента */
+    margin: 80px auto; /* Центрирование контейнера */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 0;
+    background-color: #fff;
+}
+
+.review-slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
+
+.review-image-wrapper {
+    position: relative;
+    width: 100%; /* Занимает всю ширину контейнера */
+    height: 10%; /* Высота контейнера 10% для создания прямоугольной формы */
+}
+
+.review-image {
+    width: 100%; /* Занимает всю ширину контейнера */
+    height: 100%; /* Занимает 10% от высоты контейнера */
+    object-fit: cover; /* Изображение растягивается по ширине, сохраняя пропорции */
+    border-radius: 10px;
+    transition: filter 0.3s ease;
+}
+
+.review-title {
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #fff;
+    font-size: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.review-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.review-image-wrapper:hover .review-overlay {
+    opacity: 1;
+}
+
+.review-image-wrapper:hover .review-image {
+    filter: blur(5px);
+}
+
+.review-caption {
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}

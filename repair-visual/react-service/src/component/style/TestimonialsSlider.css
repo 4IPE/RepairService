@@ -1,0 +1,30 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+}
+
+.testimonial-image img {
+    border-radius: 50%;
+    width: 154px;
+    height: 154px;
+    object-fit: cover;
+}
+
+.testimonial-content {
+    margin-left: 20px;
+}
+
+.testimonial-content h3 {
+    margin: 0 0 10px;
+}
+
+.testimonial-content p {
+    margin: 0;
+}
