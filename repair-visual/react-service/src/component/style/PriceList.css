@@ -1,0 +1,137 @@
+
+.prices-service {
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+.pricelist-main-text{
+    color: #fff;
+}
+
+.colored {
+    color: #fff;
+    background-color: #0a2f75;
+    padding: 15px 30px;
+    left: -50px;
+    border-radius:   0 30px 20px 0;
+}
+h1{
+
+}
+
+/* Заголовок h3, который частично скрыт за экраном */
+.prices-service h3 {
+    left: -50px; /* Сдвиг влево за экран */
+    padding: 15px 30px; /* Поля для текста внутри блока */
+    background-color: #0a2f75; /* Синий фон для заголовка */
+    color: #fff; /* Белый текст */
+    border-radius:   0 30px 0 ; /* Закругленные правые углы */
+    font-size: 20px;
+    font-family: var(--fonts-family-serif);
+    display: inline-block;
+    max-width: calc(100% + 50px); /* Учитываем сдвиг за экран */
+}
+
+/* Карточка цены */
+.price-card {
+    margin-bottom: 10px; /* Добавлен отступ между карточками */
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #1a549d; /* Синий цвет карточки */
+    color: black; /* Белый текст */
+    transition: all 0.3s ease; /* Плавный переход для всех изменений */
+}
+
+/* Ссылка внутри заголовка карточки */
+.price-card__title a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Цены в карточке */
+.price-card__footer-price {
+    font-size: 18px;
+    color: #fff;
+}
+
+/* Выдвижной блок, который появляется при наведении */
+.price-card__active {
+    margin-top: 10px; /* Расстояние между основным блоком и выдвижным блоком */
+    padding: 15px;
+    background-color: white; /* Синий фон для выдвижного блока */
+    border-radius: 8px;
+    text-align: center;
+    visibility: hidden; /* Скрываем блок */
+    max-height: 0; /* Изначальная высота 0 */
+    overflow: hidden; /* Прячем контент */
+    transition: max-height 0.3s ease, visibility 0.3s ease; /* Плавный переход */
+}
+
+/* Стилизация при наведении на карточку */
+.price-card:hover .price-card__active {
+    visibility: visible; /* Делаем видимым */
+    max-height: 100px; /* Высота блока при раскрытии */
+}
+
+/* Основная кнопка */
+.button-default {
+    padding: 10px 20px;
+    background-color: #fa0;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+}
+
+/* Альтернативная кнопка */
+.button-default--secondary {
+    background-color: #6c757d;
+}
+/* Переменные для отступов */
+:root {
+    --default-margin: 20px; /* Стандартный отступ между элементами */
+    --header-title-margin: 50px; /* Отступ между заголовком и заголовком */
+    --title-form-margin: 40px; /* Отступ между заголовком и формой */
+}
+
+/* Применение отступов к элементам */
+body {
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    margin-bottom: var(--header-title-margin); /* Отступ между header и title */
+}
+
+.title-container {
+    margin-bottom: var(--title-form-margin); /* Отступ между title и form */
+}
+
+/* Применение стандартного отступа для всех других элементов */
+.container, .features-container, .services-container, .form-container {
+    margin-bottom: var(--default-margin); /* Стандартный отступ */
+}
+
+/* Пример других элементов, которые могут нуждаться в отступах */
+.s-advantages-type-5 {
+    margin-bottom: var(--default-margin);
+}
+
+.features-grid {
+    margin-bottom: var(--default-margin);
+}
+
+.review-slider-container {
+    margin-bottom: var(--default-margin);
+}
+
+.contact-form {
+    margin-bottom: var(--default-margin);
+}

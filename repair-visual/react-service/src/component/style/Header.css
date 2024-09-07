@@ -1,0 +1,71 @@
+header {
+    background-color: #0a2f75;
+    padding: 10px 20px;
+    position: fixed;
+    width: calc(100% - 40px);
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Отступы между логотипом, названием и номером */
+}
+
+.logo {
+    height: 50px; /* Регулируем размер логотипа */
+}
+
+.company-name {
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+}
+
+.header-top__phone-number {
+    color: white;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-left: 20px; /* Сдвиг телефона ближе к названию компании */
+}
+
+.header-top__phone-number i {
+    font-size: 20px;
+}
+
+.header-top__phone-number:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav ul li a:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
+}

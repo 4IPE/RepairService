@@ -57,32 +57,6 @@ const Features = () => {
                     </div>
                 ))}
             </div>
-            <div className="services-container">
-                <div className="service-column">
-                    <div className="service-block">
-                        <h2>2000 руб</h2>
-                        <p>Ремонт</p>
-                        <p>Стиральных машин</p>
-                    </div>
-                </div>
-                <div className="service-column">
-                    <div className="service-block">
-                        <h2>1200 руб</h2>
-                        <p>Ремонт</p>
-                        <p>Стиральных машин</p>
-                    </div>
-                </div>
-                <div className="service-column">
-                    <div className="service-block">
-                        <h2>1800 руб</h2>
-                        <p>Ремонт</p>
-                        <p>Стиральных машин</p>
-                    </div>
-                </div>
-                <div className="submit-container">
-                    <button className="btn-submit">Оформить заявку</button>
-                </div>
-            </div>
         </div>
     );
 };

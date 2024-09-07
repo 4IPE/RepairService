@@ -14,7 +14,7 @@ const ReviewSlider = ({ reviews }) => {
                 spaceBetween={0}  // Установим 0px между слайдами
                 slidesPerView={1}
                 autoplay={{
-                    delay: 2000,
+                    delay: 4000,
                 }}
                 pagination={{
                     clickable: true,
