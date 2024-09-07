@@ -30,7 +30,7 @@ h1{
     color: #fff; /* Белый текст */
     border-radius:   0 30px 0 ; /* Закругленные правые углы */
     font-size: 20px;
-    font-family: var(--fonts-family-serif);
+    /*font-family: var(--fonts-family-serif);*/
     display: inline-block;
     max-width: calc(100% + 50px); /* Учитываем сдвиг за экран */
 }
