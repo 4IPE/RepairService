@@ -17,7 +17,6 @@ const Header = () => {
                 <ul>
                     <li><a href="#form">Оставить заявку</a></li>
                     <li><a href="#about">О нас</a></li>
-                    <li><a href="#pricelist">Услуги и цены</a></li>
                     <li><a href="#testimonials">Отзывы</a></li>
                 </ul>
             </nav>

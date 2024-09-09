@@ -1,49 +1,45 @@
-/* Внешний контейнер */
-.outer-container {
-    width: 100%;
-    padding: 0 200px; /* Отступы по бокам */
-    box-sizing: border-box; /* Учитывает отступы в ширине */
-}
-
 /* Внутренний контейнер */
 .title-container {
     width: 100%;
     display: flex;
-    justify-content: flex-start; /* Текст и картинка будут выровнены по левому краю */
+    justify-content: space-between; /* Разделяет контент */
     align-items: center;
     background-color: #1E90FF;
-    padding: 50px 20px;
+    padding: 50px 0; /* Отступы сверху и снизу */
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 70px;
     flex-wrap: wrap;
 }
 
+/* Контент с текстом */
 .title-content {
-    margin-left: 20px;
-    text-align: left; /* Текст выровнен по левому краю */
-    max-width: 50%; /* Ограничиваем ширину контента */
-    width: 100%;
-    margin-right: 20px; /* Отступ справа для изображения */
+    padding: 0 100px; /* Одинаковые отступы слева и справа */
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
     color: white;
 }
 
+/* Заголовок */
 .title-content h1 {
-    font-size: 48px; /* Размер шрифта заголовка */
+    font-size: 48px;
     font-weight: bold;
-    margin-bottom: 20px;
-    line-height: 1.2; /* Межстрочный интервал */
+    margin-bottom: 1px; /* Уменьшаем отступ между строками до 5px */ /* Можно дополнительно уменьшить межстрочный интервал */
+}
+.title-content span {
+    font-size: 80px;
+    font-weight: bold;
+    margin-bottom: 1px; /* Уменьшаем отступ между строками до 5px */ /* Можно дополнительно уменьшить межстрочный интервал */
 }
 
+
+/* Выделение текста */
 .title-content .highlight {
-    color: #fa0; /* Красный цвет для выделенного текста */
+    color: #fa0;
     font-weight: bold;
 }
 
-.title-content p {
-    font-size: 20px; /* Увеличенный размер шрифта для параграфа */
-    margin-bottom: 30px;
-}
-
+/* Список */
 .bullets {
     list-style: none;
     padding-left: 0;
@@ -63,6 +59,7 @@
     color: #0400ff;
 }
 
+/* Кнопки */
 .buttons {
     display: flex;
     gap: 15px;
@@ -84,14 +81,16 @@
     background-color: #05f;
 }
 
+/* Контейнер с изображением */
 .title-image-container {
+    padding: 0 100px; /* Одинаковые отступы слева и справа для изображения */
     flex: 1;
-    display: flex;
-    justify-content: center; /* Центрируем изображение в правой части */
-    align-items: center;
     max-width: 50%;
+    display: flex;
+    justify-content: flex-end; /* Выравниваем изображение по правому краю */
 }
 
+/* Изображение */
 .title-image {
     width: 100%;
     max-width: 300px;

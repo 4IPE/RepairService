@@ -7,7 +7,8 @@ const TitleSection = () => {
         <div className="title-wrapper">
             <div className="title-container">
                 <div className="title-content">
-                    <h1>Ремонт стиральных машин от <span className="highlight">500 ₽</span></h1>
+                    <h1>Ремонт стиральных машин </h1>
+                    <h1><span className="highlight"> от 500 ₽</span></h1>
                     <ul className="bullets">
                         <li>Мастер будет у вас в течение часа!</li>
                         <li>Диагностика неисправности 20 минут!</li>

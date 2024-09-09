@@ -1,18 +1,76 @@
 .container {
-    max-width: 800px;
+    max-width: 900px; /* Увеличение общей ширины контейнера */
     margin: 0 auto;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2rem; /* Увеличение размера заголовка */
+    margin-bottom: 30px;
 }
 
 .testimonial {
     display: flex;
     align-items: center;
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
+    text-align: left;
+    border: 2px solid #dcdcdc;
+    border-radius: 20px;
+    padding: 30px; /* Увеличение внутреннего отступа */
+    background-color: #f8f9fa;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Более заметная тень */
+    margin: 30px; /* Увеличение отступов между отзывами */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.testimonial iframe {
-    border-radius: 8px; /* Добавьте закругление, если нужно */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    height: 400px; /* Измените высоту для вертикального отображения */
+.testimonial:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    border-color: #007bff;
+}
+
+.testimonial-image img {
+    border-radius: 50%;
+    width: 100px; /* Увеличение размера изображения */
+    height: 100px;
+    object-fit: cover;
+    border: 4px solid #007bff; /* Более толстая обводка вокруг изображения */
+    margin-right: 20px; /* Увеличение отступа справа от изображения */
+}
+
+.testimonial-content {
+    max-width: 700px; /* Увеличение ширины текста отзыва */
+}
+
+.testimonial-content h3 {
+    margin: 0 0 15px;
+    font-size: 1.6rem; /* Увеличение размера шрифта для имени */
+    color: #333;
+}
+
+.testimonial-content p {
+    margin: 0;
+    font-size: 1.1rem; /* Увеличение размера текста отзыва */
+    line-height: 1.6; /* Увеличение межстрочного интервала */
+    color: #555;
+}
+
+/* Отступы для навигационных кнопок */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #007bff; /* Цвет кнопок */
+    top: 50%; /* Размещаем кнопки по центру по вертикали */
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    margin-top: -10px;
+}
+
+/* Чтобы кнопки были чуть дальше от плитки */
+.swiper-button-next {
+    right: -10px; /* Отодвигаем кнопку вправо */
+}
+
+.swiper-button-prev {
+    left: -10px; /* Отодвигаем кнопку влево */
 }

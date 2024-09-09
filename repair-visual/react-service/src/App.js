@@ -12,6 +12,7 @@ import image3 from './component/image/logo/38d74e8a-28c8-41c2-a3bf-3aacedfee8d0.
 import Advantages from "./component/Advantages";
 import PriceList from "./component/PriceList";
 import FormSection from "./component/FormSection";
+import Footer from "./component/Footer";
 
 function App() {
     const reviews = [
@@ -37,7 +38,7 @@ function App() {
           <div>
               <TitleSection/>
           </div>
-          <div id = "form">
+          <div id="form">
               <FormSection/>
           </div>
           <div id="about">
@@ -46,14 +47,14 @@ function App() {
           <div id="services">
               <Features/>
           </div>
-          <div id="pricelist">
-              <PriceList/>
+          <div id="testimonials">
+              <TestimonialsSlider/>
           </div>
           <div>
               <Advantages/>
           </div>
-          <div id="testimonials">
-              <TestimonialsSlider/>
+          <div>
+              <Footer/>
           </div>
       </div>
   );

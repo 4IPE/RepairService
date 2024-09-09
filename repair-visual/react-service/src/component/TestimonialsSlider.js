@@ -4,17 +4,20 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import './style/TestimonialsSlider.css'
 
 const testimonials = [
     {
         id: 1,
         name: 'Иван',
-        videoUrl: 'https://www.youtube.com/watch?v=VIDEO_ID_1', // Замените на ID видео
+        text: 'Спасибо! Были предложены различные варианты выполнения работы для выбора наиболее оптимального! Все сделано быстро в срок! Буду ещё обращаться! Отличный специалист!',
+        image: 'https://i.1.creatium.io/8a/ff/6b/6e1a1c7a5631a2a7dbb5163450c19b9836/154x154q8/screenshot_7.png'
     },
     {
         id: 2,
         name: 'Анна',
-        videoUrl: 'https://www.youtube.com/watch?v=VIDEO_ID_2', // Замените на ID видео
+        text: 'Профессионалы своего дела. Очень доходчиво объяснили строителям, как правильно сделать разводку воды в квартире.',
+        image: 'https://i.1.creatium.io/63/4a/f6/562ef0f6f28a2d480fb7d1f11cd63f230b/154x154q8/screenshot_8.png'
     },
 ];
 
@@ -24,7 +27,7 @@ const TestimonialsSlider = () => {
             <h2>Отзывы о нас</h2>
             <Swiper
                 modules={[Navigation, Pagination, Autoplay]}
-                spaceBetween={30}
+                spaceBetween={50}
                 slidesPerView={1}
                 navigation
                 pagination={{ clickable: true }}
@@ -34,17 +37,13 @@ const TestimonialsSlider = () => {
                 {testimonials.map(testimonial => (
                     <SwiperSlide key={testimonial.id}>
                         <div className="testimonial">
-                            <a href={testimonial.videoUrl} target="_blank" rel="noopener noreferrer">
-                                <iframe
-                                    width="100%"
-                                    height="315"
-                                    src={`https://www.youtube.com/embed/${testimonial.videoUrl.split('v=')[1]}`} // Встраивание видео
-                                    title={testimonial.name}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                ></iframe>
-                            </a>
+                            <div className="testimonial-image">
+                                <img src={testimonial.image} alt={testimonial.name} />
+                            </div>
+                            <div className="testimonial-content">
+                                <h3>{testimonial.name}</h3>
+                                <p>{testimonial.text}</p>
+                            </div>
                         </div>
                     </SwiperSlide>
                 ))}

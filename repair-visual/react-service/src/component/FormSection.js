@@ -3,90 +3,18 @@ import DatePicker from 'react-datepicker';
 import InputMask from 'react-input-mask';
 import { Turnstile } from '@marsidev/react-turnstile';
 import 'react-datepicker/dist/react-datepicker.css';
-import styled from 'styled-components';
-
-const FormContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-`;
-
-const DateSection = styled.div`
-    flex: 1;
-    margin-right: 40px;
-`;
-
-const ContactSection = styled.div`
-    flex: 1;
-`;
-
-const SectionTitle = styled.h3`
-    color: #333;
-    margin-bottom: 10px;
-`;
-
-const SubTitle = styled.h4`
-    color: #555;
-    margin-bottom: 15px;
-    margin-top: 20px;
-`;
-
-const TransparentButton = styled.button`
-    padding: 10px 20px;
-    background-color: transparent;
-    border: 2px solid #000;
-    border-radius: 5px;
-    color: #000;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-
-    &:hover {
-        background-color: #f0f0f0;
-    }
-`;
-
-const DateButtonGroup = styled.div`
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
-`;
-
-const TimeButtonGroup = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-`;
-
-const Input = styled.input`
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-`;
-
-const SubmitButton = styled(TransparentButton)`
-    width: 100%;
-    background-color: #fa0;
-    border: none;
-    color: white;
-
-    &:hover {
-        background-color: #ffca0a;
-    }
-`;
+import Autosuggest from 'react-autosuggest';
+import axios from 'axios';
+import './style/FormSection.css';
 
 const FormSection = () => {
     const [startDate, setStartDate] = useState(null);
+    const [selectedButton, setSelectedButton] = useState(null);
+    const [selectedTime, setSelectedTime] = useState(null);
+    const [phoneNumber, setPhoneNumber] = useState('');
+    const [userName, setUserName] = useState('');
+    const [address, setAddress] = useState('');
+    const [suggestions, setSuggestions] = useState([]);
     const [captchaToken, setCaptchaToken] = useState(null);
 
     const handleCaptcha = (token) => {
@@ -99,50 +27,148 @@ const FormSection = () => {
             alert("Пожалуйста, подтвердите, что вы не робот!");
             return;
         }
-        alert("Форма успешно отправлена!");
+
+        const formData = {
+            date: startDate,
+            time: selectedTime,
+            phone: phoneNumber,
+            name: userName,
+            address,
+        };
+
+        axios.post('ВАШ_API_АДРЕС', formData)
+            .then(response => {
+                alert('Форма успешно отправлена!');
+            })
+            .catch(error => {
+                alert('Ошибка отправки формы.');
+            });
+    };
+
+    // Обработка выбора даты
+    const handleDateChange = (date) => {
+        setStartDate(date);
+        setSelectedButton(null); // Сброс кнопок при выборе даты
+    };
+
+    // Обработка выбора кнопок "Сегодня" и "Завтра"
+    const handleButtonClick = (buttonValue) => {
+        setSelectedButton(buttonValue);
+        setStartDate(null); // Сброс даты при выборе кнопки
+    };
+
+    // Автоподсказки для адреса
+    const getSuggestions = (value) => {
+        return axios.get(`https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address`, {
+            params: {
+                query: value,
+            },
+            headers: {
+                "Authorization": "Token ВАШ_DADATA_API_KEY"
+            }
+        }).then(response => {
+            return response.data.suggestions.map(suggestion => suggestion.value);
+        });
+    };
+
+    const onSuggestionsFetchRequested = ({ value }) => {
+        getSuggestions(value).then(suggestions => {
+            setSuggestions(suggestions);
+        });
+    };
+
+    const onSuggestionsClearRequested = () => {
+        setSuggestions([]);
     };
 
     return (
         <form onSubmit={handleSubmit}>
-            <FormContainer>
-                <DateSection>
-                    <SectionTitle>Выберите дату и время</SectionTitle>
-                    <SubTitle>Выберите дату</SubTitle>
-                    <DateButtonGroup>
-                        <TransparentButton>Сегодня</TransparentButton>
-                        <TransparentButton>Завтра</TransparentButton>
+            <div className="form-container">
+                <div className="date-section">
+                    <h3 className="section-title">Выберите дату и время</h3>
+                    <h4 className="sub-title">Выберите дату</h4>
+                    <div className="date-button-group">
+                        <button
+                            type="button"
+                            className={selectedButton === 'Сегодня' ? 'button selected-button' : 'button'}
+                            onClick={() => handleButtonClick('Сегодня')}
+                        >
+                            Сегодня
+                        </button>
+                        <button
+                            type="button"
+                            className={selectedButton === 'Завтра' ? 'button selected-button' : 'button'}
+                            onClick={() => handleButtonClick('Завтра')}
+                        >
+                            Завтра
+                        </button>
                         <DatePicker
                             selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            placeholderText="Выберите дату"
-                            customInput={<TransparentButton>Выбрать дату 📅</TransparentButton>}
+                            onChange={handleDateChange}
+                            placeholderText={startDate ? startDate.toLocaleDateString() : 'Выберите дату 📅'}
+                            customInput={<button type="button" className={startDate ? 'button selected-button' : 'button'}>{startDate ? startDate.toLocaleDateString() : 'Выбрать дату 📅'}</button>}
                             dateFormat="dd/MM/yyyy"
                             minDate={new Date()}
-                            popperPlacement="bottom-end"
                         />
-                    </DateButtonGroup>
-                    <SubTitle>Выберите время</SubTitle>
-                    <TimeButtonGroup>
-                        <TransparentButton>10:00</TransparentButton>
-                        <TransparentButton>12:00</TransparentButton>
-                        <TransparentButton>14:00</TransparentButton>
-                        <TransparentButton>16:00</TransparentButton>
-                    </TimeButtonGroup>
-                </DateSection>
-                <ContactSection>
-                    <SectionTitle>Контактная информация</SectionTitle>
-                    <InputMask mask="+7 (999) 999-99-99" placeholder="Телефон*" required>
-                        {(inputProps) => <Input {...inputProps} />}
+                    </div>
+                    <h4 className="sub-title">Выберите время</h4>
+                    <div className="time-button-group">
+                        <button
+                            type="button"
+                            className={selectedTime === '10:00' ? 'button selected-button' : 'button'}
+                            onClick={() => setSelectedTime('10:00')}
+                        >
+                            10:00
+                        </button>
+                        <button
+                            type="button"
+                            className={selectedTime === '12:00' ? 'button selected-button' : 'button'}
+                            onClick={() => setSelectedTime('12:00')}
+                        >
+                            12:00
+                        </button>
+                        <button
+                            type="button"
+                            className={selectedTime === '14:00' ? 'button selected-button' : 'button'}
+                            onClick={() => setSelectedTime('14:00')}
+                        >
+                            14:00
+                        </button>
+                        <button
+                            type="button"
+                            className={selectedTime === '16:00' ? 'button selected-button' : 'button'}
+                            onClick={() => setSelectedTime('16:00')}
+                        >
+                            16:00
+                        </button>
+                    </div>
+                </div>
+                <div className="contact-section">
+                    <h3 className="section-title">Контактная информация</h3>
+                    <InputMask mask="+7 (999) 999-99-99" value={phoneNumber} onChange={(e) => setPhoneNumber(e.target.value)} placeholder="Телефон*" required>
+                        {(inputProps) => <input {...inputProps} className="input" />}
                     </InputMask>
-                    <Input type="text" placeholder="Имя*" required />
-                    <Input type="text" placeholder="Город, улица, дом" required />
+                    <input type="text" value={userName} onChange={(e) => setUserName(e.target.value)} placeholder="Имя*" required className="input" />
+                    <Autosuggest
+                        suggestions={suggestions}
+                        onSuggestionsFetchRequested={onSuggestionsFetchRequested}
+                        onSuggestionsClearRequested={onSuggestionsClearRequested}
+                        getSuggestionValue={(suggestion) => suggestion}
+                        renderSuggestion={(suggestion) => <div>{suggestion}</div>}
+                        inputProps={{
+                            placeholder: 'Город, улица, дом',
+                            value: address,
+                            onChange: (e, { newValue }) => setAddress(newValue),
+                            className: 'input' // добавляем класс input, чтобы поле адреса было таким же как остальные
+                        }}
+                    />
                     <Turnstile
                         siteKey="ВАШ_CLOUDFLARE_SITE_KEY"
                         onVerify={handleCaptcha}
                     />
-                    <SubmitButton type="submit">Отправить</SubmitButton>
-                </ContactSection>
-            </FormContainer>
+                    <button type="submit" className="submit-button">Отправить</button>
+                </div>
+            </div>
         </form>
     );
 };
