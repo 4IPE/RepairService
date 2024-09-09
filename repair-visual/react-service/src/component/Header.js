@@ -7,7 +7,7 @@ const Header = () => {
         <header>
             <div className="logo-container">
                 <img src={logo} alt="Логотип" className="logo"/>
-                <span className="company-name">РемТехСервис</span> {/* Текст с названием компании */}
+                <span className="company-name">РемБытСервис</span> {/* Текст с названием компании */}
                 <a href="tel:+74951747123" title="8 (495) 174-71-23" className="header-top__phone-number">
                     <span>8 (495) 174-71-23</span>
                     <i className="icon-social-phone"></i>
