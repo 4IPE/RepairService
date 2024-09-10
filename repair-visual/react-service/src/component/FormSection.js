@@ -38,9 +38,11 @@ const FormSection = () => {
 
         axios.post('http://localhost:8080/request', formData)
             .then(response => {
+                console.log('Response:', response);
                 alert('Форма успешно отправлена!');
             })
             .catch(error => {
+                console.error('Error:', error);
                 alert('Ошибка отправки формы.');
             });
     };
