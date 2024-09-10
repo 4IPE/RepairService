@@ -15,18 +15,18 @@ const FormSection = () => {
     const [userName, setUserName] = useState('');
     const [address, setAddress] = useState('');
     const [suggestions, setSuggestions] = useState([]);
-    // const [captchaToken, setCaptchaToken] = useState(null);
+    const [captchaToken, setCaptchaToken] = useState(null);
 
-    // const handleCaptcha = (token) => {
-    //     setCaptchaToken(token);
-    // };
+    const handleCaptcha = (token) => {
+        setCaptchaToken(token);
+    };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // if (!captchaToken) {
-        //     alert("Пожалуйста, подтвердите, что вы не робот!");
-        //     return;
-        // }
+        if (!captchaToken) {
+            alert("Пожалуйста, подтвердите, что вы не робот!");
+            return;
+        }
 
         const formData = {
             date: startDate,
@@ -164,10 +164,10 @@ const FormSection = () => {
                             className: 'input'
                         }}
                     />
-                    {/*<Turnstile*/}
-                    {/*    siteKey="ВАШ_CLOUDFLARE_SITE_KEY"*/}
-                    {/*    onVerify={handleCaptcha}*/}
-                    {/*/>*/}
+                    <Turnstile
+                        siteKey="ВАШ_CLOUDFLARE_SITE_KEY"
+                        onVerify={handleCaptcha}
+                    />
                     <button type="submit" className="submit-button">Отправить</button>
                 </div>
             </div>
