@@ -15,18 +15,18 @@ const FormSection = () => {
     const [userName, setUserName] = useState('');
     const [address, setAddress] = useState('');
     const [suggestions, setSuggestions] = useState([]);
-    const [captchaToken, setCaptchaToken] = useState(null);
+    // const [captchaToken, setCaptchaToken] = useState(null);
 
-    const handleCaptcha = (token) => {
-        setCaptchaToken(token);
-    };
+    // const handleCaptcha = (token) => {
+    //     setCaptchaToken(token);
+    // };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!captchaToken) {
-            alert("Пожалуйста, подтвердите, что вы не робот!");
-            return;
-        }
+        // if (!captchaToken) {
+        //     alert("Пожалуйста, подтвердите, что вы не робот!");
+        //     return;
+        // }
 
         const formData = {
             date: startDate,
@@ -36,7 +36,7 @@ const FormSection = () => {
             address,
         };
 
-        axios.post('ВАШ_API_АДРЕС', formData)
+        axios.post('http://localhost:8080/request', formData)
             .then(response => {
                 alert('Форма успешно отправлена!');
             })
@@ -159,13 +159,13 @@ const FormSection = () => {
                             placeholder: 'Город, улица, дом',
                             value: address,
                             onChange: (e, { newValue }) => setAddress(newValue),
-                            className: 'input' // добавляем класс input, чтобы поле адреса было таким же как остальные
+                            className: 'input'
                         }}
                     />
-                    <Turnstile
-                        siteKey="ВАШ_CLOUDFLARE_SITE_KEY"
-                        onVerify={handleCaptcha}
-                    />
+                    {/*<Turnstile*/}
+                    {/*    siteKey="ВАШ_CLOUDFLARE_SITE_KEY"*/}
+                    {/*    onVerify={handleCaptcha}*/}
+                    {/*/>*/}
                     <button type="submit" className="submit-button">Отправить</button>
                 </div>
             </div>
