@@ -3,12 +3,18 @@ html {
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Roboto', sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;
 }
-
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif; /* Для заголовков */
+  font-weight: 700; /* Жирный шрифт */
+}
+p{
+  font-family: 'Roboto', sans-serif;
+}
 .logo-container img {
   height: 50px;
   margin-right: 20px;
