@@ -14,7 +14,7 @@ const features = [
     },
     {
         title: "Профессионализм",
-        description: "Средний опыт мастера 7 лет и 465 успешных ремонтов стиральных машин.",
+        description: "Средний опыт мастера 7 лет и 3000+ успешных ремонтов стиральных машин.",
         icon: "⭐"
     },
     {
@@ -42,7 +42,7 @@ const Features = () => {
 
     return (
         <div className="features-container">
-            <h2>Почему 700+ клиентов в этом году доверили ремонт нам?</h2>
+            <h2>Почему 3000+ клиентов в этом году доверили ремонт нам?</h2>
             <div className="features-grid">
                 {features.map((feature, index) => (
                     <div key={index} className="feature-item">

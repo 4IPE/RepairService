@@ -18,7 +18,7 @@ const Footer = () => {
             </div>
             <div style={styles.container}>
                 <div style={styles.logoSection}>
-                    <h4 style={styles.companyName}>© 2024 РемБытТех. Все права защищены.</h4>
+                    <h4 style={styles.companyName}>© 2015 РемонтЭксперт. Все права защищены.</h4>
                 </div>
                 <div style={styles.info}>
                     <p style={styles.text}>
