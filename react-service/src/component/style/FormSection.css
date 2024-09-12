@@ -7,7 +7,7 @@
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 20px auto; /* Отцентрировать по горизонтали */
 }
 
 .date-section, .contact-section {
@@ -88,8 +88,9 @@
 /* Медиазапросы для планшетов (макс. ширина 768px) */
 @media (max-width: 768px) {
     .form-container {
-        flex-direction: column;
+        flex-direction: column; /* Изменяем направление на вертикальное */
         padding: 15px;
+        margin: 0 auto; /* Отцентрировать по горизонтали */
     }
 
     .date-section {
@@ -98,12 +99,30 @@
     }
 
     .date-button-group, .time-button-group {
-        flex-direction: column;
-        gap: 15px;
+        flex-direction: column; /* Располагаем кнопки вертикально */
+        gap: 10px; /* Уменьшаем отступы между кнопками */
     }
 
     .button {
-        width: 100%;
+        width: 100%; /* Делаем кнопки шириной 100% */
+    }
+
+    .section-title {
+        font-size: 1.2rem; /* Уменьшаем размер заголовка */
+    }
+
+    .sub-title {
+        font-size: 1rem; /* Уменьшаем размер подзаголовка */
+    }
+
+    .input {
+        padding: 8px; /* Уменьшаем padding */
+        font-size: 12px; /* Уменьшаем размер шрифта */
+    }
+
+    .submit-button {
+        padding: 12px 25px; /* Уменьшаем размеры кнопок */
+        font-size: 14px; /* Уменьшаем размер шрифта */
     }
 }
 
@@ -111,28 +130,29 @@
 @media (max-width: 480px) {
     .form-container {
         padding: 10px;
+        margin: 0 auto; /* Отцентрировать по горизонтали */
     }
 
     .section-title {
-        font-size: 1.2rem;
+        font-size: 1rem; /* Уменьшаем размер заголовка */
     }
 
     .sub-title {
-        font-size: 1rem;
+        font-size: 0.9rem; /* Уменьшаем размер подзаголовка */
     }
 
     .input {
-        padding: 8px;
-        font-size: 12px;
+        padding: 6px; /* Уменьшаем padding */
+        font-size: 11px; /* Уменьшаем размер шрифта */
     }
 
     .button {
-        padding: 8px 15px;
-        font-size: 12px;
+        padding: 6px 12px; /* Уменьшаем размеры кнопок */
+        font-size: 11px; /* Уменьшаем размер шрифта */
     }
 
     .submit-button {
-        padding: 12px 25px;
-        font-size: 14px;
+        padding: 10px 20px; /* Уменьшаем размеры кнопок */
+        font-size: 12px; /* Уменьшаем размер шрифта */
     }
 }
