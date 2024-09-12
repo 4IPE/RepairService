@@ -1,14 +1,16 @@
-/* Стили для шапки */
 header {
     background-color: #0a2f75;
     padding: 10px 20px;
     position: fixed;
-    width: 100%;
+    width: calc(100% - 40px);
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo-container {
@@ -41,61 +43,96 @@ header {
     font-size: 20px;
 }
 
-/* Стили для боковой панели */
-.sidebar {
-    height: 100%;
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: -250px;
-    background-color: #0a2f75;
-    z-index: 1001;
-    transition: 0.3s;
-    padding-top: 20px;
+.header-top__phone-number:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
 }
 
-.sidebar.open {
-    left: 0;
+nav ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
-.sidebar a {
-    padding: 10px 15px;
+nav ul li {
+    margin-left: 20px;
+}
+
+nav ul li a {
+    color: white;
     text-decoration: none;
-    font-size: 25px;
-    color: white;
-    display: block;
-    transition: 0.3s;
+    font-weight: 500;
 }
 
-.sidebar a:hover {
-    background-color: #f0f0f0;
-    color: #0a2f75;
+nav ul li a:hover {
+    color: #f0f0f0;
+    text-decoration: underline;
 }
 
-.sidebar .closebtn {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    font-size: 36px;
-}
-
-.openbtn {
-    font-size: 20px;
-    cursor: pointer;
-    background-color: #0a2f75;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-}
-
-.openbtn:hover {
-    background-color: #f0f0f0;
-    color: #0a2f75;
-}
-
-/* Медиазапросы */
+/* Медиазапросы для планшетов (макс. ширина 768px) */
 @media (max-width: 768px) {
     header {
-        flex-direction: row;
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .logo {
+        height: 40px;
+    }
+
+    .company-name {
+        font-size: 16px;
+    }
+
+    .header-top__phone-number {
+        font-size: 16px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+/* Медиазапросы для телефонов (макс. ширина 480px) */
+@media (max-width: 480px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .logo {
+        height: 35px;
+    }
+
+    .company-name {
+        font-size: 14px;
+    }
+
+    .header-top__phone-number {
+        font-size: 14px;
+        margin-left: 10px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    nav ul li {
+        margin-left: 0;
+        margin-top: 5px;
+    }
+
+    nav ul li a {
+        font-size: 14px;
     }
 }
