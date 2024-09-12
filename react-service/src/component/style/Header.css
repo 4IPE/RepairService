@@ -1,16 +1,14 @@
+/* Стили для шапки */
 header {
     background-color: #0a2f75;
     padding: 10px 20px;
     position: fixed;
-    width: calc(100% - 40px);
+    width: 100%;
     top: 0;
-    left: 50%;
-    transform: translateX(-50%);
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
 }
 
 .logo-container {
@@ -43,96 +41,61 @@ header {
     font-size: 20px;
 }
 
-.header-top__phone-number:hover {
-    color: #f0f0f0;
-    text-decoration: underline;
+/* Стили для боковой панели */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: -250px;
+    background-color: #0a2f75;
+    z-index: 1001;
+    transition: 0.3s;
+    padding-top: 20px;
 }
 
-nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+.sidebar.open {
+    left: 0;
 }
 
-nav ul li {
-    margin-left: 20px;
-}
-
-nav ul li a {
-    color: white;
+.sidebar a {
+    padding: 10px 15px;
     text-decoration: none;
-    font-weight: 500;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
 }
 
-nav ul li a:hover {
-    color: #f0f0f0;
-    text-decoration: underline;
+.sidebar a:hover {
+    background-color: #f0f0f0;
+    color: #0a2f75;
 }
 
-/* Медиазапросы для планшетов (макс. ширина 768px) */
+.sidebar .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #0a2f75;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    background-color: #f0f0f0;
+    color: #0a2f75;
+}
+
+/* Медиазапросы */
 @media (max-width: 768px) {
     header {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
-
-    .logo {
-        height: 40px;
-    }
-
-    .company-name {
-        font-size: 16px;
-    }
-
-    .header-top__phone-number {
-        font-size: 16px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    nav ul li {
-        margin-left: 0;
-        margin-top: 10px;
-    }
-}
-
-/* Медиазапросы для телефонов (макс. ширина 480px) */
-@media (max-width: 480px) {
-    header {
-        flex-direction: column;
-        padding: 10px;
-    }
-
-    .logo {
-        height: 35px;
-    }
-
-    .company-name {
-        font-size: 14px;
-    }
-
-    .header-top__phone-number {
-        font-size: 14px;
-        margin-left: 10px;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 10px;
-    }
-
-    nav ul li {
-        margin-left: 0;
-        margin-top: 5px;
-    }
-
-    nav ul li a {
-        font-size: 14px;
+        flex-direction: row;
     }
 }

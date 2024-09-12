@@ -9,12 +9,12 @@ const Footer = () => {
         <footer style={styles.footer}>
             <div style={styles.thankYouSection}>
                 <h1 style={styles.thankYouText}>Спасибо, что выбираете нас!</h1>
-                <h2 style={styles.thankYouText}>
+                <h2 style={styles.thankYouSubText}>
                     Пожалуйста, оставьте отзыв — мы хотим становиться лучше для вас!
                 </h2>
-                <a  href="https://www.avito.ru/brands/324896b9571238055aebdd9d01324073/all?gdlkerfdnwq=101&page_from=from_item_card&iid=4271924479&sellerId=97dfd45869fdea2dc9ee4b1dbc2eab06" target="_blank" rel="noopener noreferrer">
-                    <button style={styles.reviewButton} >Оставить отзыв</button>
-                </a>
+                <button style={styles.reviewButton} onClick={handleReviewClick}>
+                    Оставить отзыв
+                </button>
             </div>
             <div style={styles.container}>
                 <div style={styles.logoSection}>
@@ -32,6 +32,7 @@ const Footer = () => {
 
 const styles = {
     footer: {
+        width: '100vw',
         backgroundColor: '#0a2f75',
         padding: '40px 20px',
         color: '#fff',
@@ -49,6 +50,11 @@ const styles = {
         margin: '10px 0',
         fontSize: '1.5rem',
     },
+    thankYouSubText: {
+        margin: '10px 0',
+        fontSize: '1.2rem',
+        color: '#333',
+    },
     reviewButton: {
         backgroundColor: '#05f',
         color: '#fff',
@@ -58,13 +64,12 @@ const styles = {
         cursor: 'pointer',
         fontSize: '1rem',
         transition: 'background-color 0.3s ease',
-    },
-    reviewButtonHover: {
-        backgroundColor: '#004080',
+        marginTop: '10px',
     },
     container: {
         maxWidth: '1200px',
         margin: '0 auto',
+        padding: '0 20px',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',

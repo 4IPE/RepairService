@@ -1,45 +1,33 @@
-/* Внутренний контейнер */
 .title-container {
     width: 100%;
     display: flex;
-    justify-content: space-between; /* Разделяет контент */
+    justify-content: space-between;
     align-items: center;
     background-color: #1E90FF;
-    padding: 50px 0; /* Отступы сверху и снизу */
+    padding: 50px 0;
     box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
     margin-top: 70px;
     flex-wrap: wrap;
 }
 
-/* Контент с текстом */
 .title-content {
-    padding: 0 100px; /* Одинаковые отступы слева и справа */
+    padding: 0 100px;
     flex: 1;
     max-width: 50%;
-    text-align: left;
     color: white;
 }
 
-/* Заголовок */
 .title-content h1 {
     font-size: 48px;
     font-weight: bold;
-    margin-bottom: 1px; /* Уменьшаем отступ между строками до 5px */
+    margin-bottom: 1px;
 }
 
 .title-content span {
     font-size: 80px;
     font-weight: bold;
-    margin-bottom: 1px; /* Уменьшаем отступ между строками до 5px */
 }
 
-/* Выделение текста */
-.title-content .highlight {
-    color: #fa0;
-    font-weight: bold;
-}
-
-/* Список */
 .bullets {
     list-style: none;
     padding-left: 0;
@@ -59,7 +47,6 @@
     color: #0400ff;
 }
 
-/* Кнопки */
 .buttons {
     display: flex;
     gap: 15px;
@@ -81,16 +68,14 @@
     background-color: #05f;
 }
 
-/* Контейнер с изображением */
 .title-image-container {
-    padding: 0 100px; /* Одинаковые отступы слева и справа для изображения */
+    padding: 0 100px;
     flex: 1;
     max-width: 50%;
     display: flex;
-    justify-content: flex-end; /* Выравниваем изображение по правому краю */
+    justify-content: flex-end;
 }
 
-/* Изображение */
 .title-image {
     width: 100%;
     max-width: 300px;
@@ -98,74 +83,28 @@
     object-fit: cover;
 }
 
-/* Медиазапросы для планшетов (макс. ширина 768px) */
+/* Медиазапросы */
 @media (max-width: 768px) {
     .title-container {
         flex-direction: column;
         text-align: center;
-        padding: 30px 0; /* Уменьшаем отступы на планшетах */
+        padding: 30px 0;
     }
 
     .title-content {
         padding: 0 50px;
-        max-width: 100%; /* Полная ширина для текста */
-    }
-
-    .title-content h1 {
-        font-size: 36px; /* Уменьшаем размер заголовка */
-    }
-
-    .title-content span {
-        font-size: 60px; /* Уменьшаем размер выделенного текста */
-    }
-
-    .bullets li {
-        font-size: 16px; /* Уменьшаем размер текста в списке */
-    }
-
-    .title-image-container {
-        justify-content: center; /* Центрируем изображение */
-        padding: 0;
-    }
-
-    .title-image {
-        max-width: 250px; /* Уменьшаем максимальный размер изображения */
-    }
-}
-
-/* Медиазапросы для телефонов (макс. ширина 480px) */
-@media (max-width: 480px) {
-    .title-container {
-        padding: 20px 0; /* Еще большее уменьшение отступов для мобильных */
-    }
-
-    .title-content {
-        padding: 0 20px;
         max-width: 100%;
     }
 
+    .title-image-container {
+        display: none;
+    }
+
     .title-content h1 {
-        font-size: 28px; /* Еще большее уменьшение заголовка */
+        font-size: 36px;
     }
 
     .title-content span {
-        font-size: 50px; /* Еще большее уменьшение выделенного текста */
-    }
-
-    .bullets li {
-        font-size: 14px; /* Уменьшение размера текста в списке */
-    }
-
-    .title-image-container {
-        padding: 0;
-    }
-
-    .title-image {
-        max-width: 200px; /* Уменьшение изображения для телефонов */
-    }
-
-    .btn-primary {
-        padding: 10px 20px; /* Уменьшение размера кнопок */
-        font-size: 16px;
+        font-size: 60px;
     }
 }
