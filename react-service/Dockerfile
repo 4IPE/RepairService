@@ -2,7 +2,7 @@
 FROM node:18 AS build
 
 # Указываем рабочую директорию внутри контейнера
-WORKDIR /repair
+WORKDIR /app
 
 # Копируем package.json и package-lock.json в контейнер
 COPY package*.json ./
@@ -18,7 +18,11 @@ RUN npm run build
 
 # Используем NGINX для обслуживания собранного приложения
 FROM nginx:alpine
-COPY --from=build /repair/build /usr/share/nginx/html
+
+# Копируем собранное приложение из предыдущего контейнера
+COPY --from=build /app/build /usr/share/nginx/html
+
+# Открываем порт 80
 EXPOSE 80
 
 # Запускаем NGINX

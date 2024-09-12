@@ -13,7 +13,7 @@ import ru.RepairService.dto.RepairRequestTechniqueInDto;
 import ru.RepairService.service.RRTService;
 
 @RestController
-@RequestMapping("/main")
+@RequestMapping("/add")
 @RequiredArgsConstructor
 @Slf4j
 @Validated
@@ -21,7 +21,7 @@ public class MainController {
 
     private  final RRTService service;
 
-    @PostMapping("/request")
+    @PostMapping()
     public ResponseEntity<String> submitRepairRequest(@Valid @RequestBody RepairRequestTechniqueInDto request) {
         service.saveRRT(request);
         return ResponseEntity.ok("Repair request submitted successfully");

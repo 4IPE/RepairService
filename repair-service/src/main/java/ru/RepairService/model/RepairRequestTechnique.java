@@ -12,14 +12,14 @@ public class RepairRequestTechnique {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(name = "date_repair")
+    private String date;
+    @Column(name = "time_repair")
+    private String time;
     @Column
-    private String problem;
+    private String name;
     @Column
-    private String model;
+    private String phone;
     @Column
-    private String oldTechnique;
-    @Column
-    private String nameComplainant;
-    @Column
-    private String numberComplainant;
+    private String address;
 }

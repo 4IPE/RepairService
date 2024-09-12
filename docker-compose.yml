@@ -45,9 +45,9 @@ services:
       - repair-network
 
   repair-frontend:
-      image: react-repair-img
-      build: repair-visual
-      container_name: repair-visual-con
+      image: react-service-img
+      build: react-service
+      container_name: react-service-con
       ports:
         - "3000:80"
       networks:
@@ -55,6 +55,7 @@ services:
 
 volumes:
   repair-service-data:
+  repair-db-data:
 networks:
   repair-network:
     driver: bridge

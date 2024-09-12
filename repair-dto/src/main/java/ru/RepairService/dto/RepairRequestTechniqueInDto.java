@@ -11,22 +11,21 @@ public class RepairRequestTechniqueInDto {
     @NotNull
     @NotEmpty
     @NotBlank
-    private String problem;
+    private String date;
     @NotNull
     @NotEmpty
     @NotBlank
-    private String model;
+    private String time;
     @NotNull
     @NotEmpty
     @NotBlank
-    private String oldTechnique;
+    private String phone;
     @NotNull
     @NotEmpty
     @NotBlank
-    private String nameComplainant;
+    private String name;
     @NotNull
     @NotEmpty
     @NotBlank
-    @NumberFormat(style = NumberFormat.Style.NUMBER)
-    private String numberComplainant;
+    private String address;
 }
