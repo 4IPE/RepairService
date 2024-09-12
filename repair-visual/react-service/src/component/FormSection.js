@@ -66,7 +66,7 @@ const FormSection = () => {
                 query: value,
             },
             headers: {
-                "Authorization": "Token ВАШ_DADATA_API_KEY"
+                "Authorization": "1f678ed76cc10315f244e278fc84c6c41ea1bce4"
             }
         }).then(response => {
             return response.data.suggestions.map(suggestion => suggestion.value);

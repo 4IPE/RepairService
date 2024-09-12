@@ -1,4 +1,3 @@
-
 .sb-container {
     max-width: 1200px;
     margin: 0 auto;
@@ -21,10 +20,10 @@
 .s-advantages-type-5__col {
     padding: 1.5rem;
     box-sizing: border-box;
-    flex: 1 1 30%; /* Изменение для лучшего расположения колонок */
+    flex: 1 1 30%; /* Три колонки для больших экранов */
     max-width: 30%;
     margin: 1rem;
-    text-align: center; /* Выровнять текст по центру */
+    text-align: center;
 }
 
 .s-advantages-type-5__item {
@@ -43,11 +42,11 @@
     position: relative;
     margin-bottom: 1.5rem;
     display: flex;
-    justify-content: center; /* Центрирование кружка с цифрой */
+    justify-content: center;
 }
 
 .s-advantages-type-5__number {
-    font-size: 1.2rem; /* Уменьшение размера цифры */
+    font-size: 1.2rem;
     font-weight: bold;
     color: #ffffff;
     z-index: 1;
@@ -56,14 +55,14 @@
 
 .sb-background_clear {
     position: relative;
-    width: 35px; /* Уменьшение размера кружка */
+    width: 35px;
     height: 35px;
-    background-color: #007bff; /* Основной цвет вашего сайта */
+    background-color: #007bff;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 0.5rem; /* Добавляем отступ снизу */
+    margin-bottom: 0.5rem;
 }
 
 .sb-font-h3 {
@@ -83,15 +82,15 @@
 }
 
 .sb-font-h5 {
-    font-size: 1.25rem; /* Уменьшение размера текста */
+    font-size: 1.25rem;
     font-weight: bold;
     color: #343a40;
 }
 
 .sb-font-p3 {
-    font-size: 0.95rem; /* Уменьшение размера текста */
+    font-size: 0.95rem;
     line-height: 1.5;
-    color: #666; /* Цвет текста для описаний */
+    color: #666;
 }
 
 .sb-align-center {
@@ -99,7 +98,7 @@
 }
 
 .sb-align-left {
-    text-align: center; /* Выровнять текст под кружком по центру */
+    text-align: center;
 }
 
 .sb-m-14-bottom {
@@ -112,4 +111,36 @@
 
 .sb-m-clear-bottom {
     margin-bottom: 0;
+}
+
+/* Медиазапросы для планшетов (макс. ширина 768px) */
+@media (max-width: 768px) {
+    .s-advantages-type-5__col {
+        flex: 1 1 45%; /* Две колонки на планшетах */
+        max-width: 45%;
+    }
+}
+
+/* Медиазапросы для телефонов (макс. ширина 480px) */
+@media (max-width: 480px) {
+    .s-advantages-type-5__col {
+        flex: 1 1 100%; /* Одна колонка на телефонах */
+        max-width: 100%;
+    }
+
+    .sb-font-h3 {
+        font-size: 1.5rem;
+    }
+
+    .sb-font-h5 {
+        font-size: 1rem;
+    }
+
+    .sb-font-p1, .sb-font-p3 {
+        font-size: 0.9rem;
+    }
+
+    .s-advantages-type-5__number-wrapper {
+        margin-bottom: 1rem;
+    }
 }

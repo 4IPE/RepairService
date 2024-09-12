@@ -14,7 +14,6 @@
     text-align: center;
     padding: 20px;
     border-radius: 10px;
-
 }
 
 .emoji {
@@ -37,4 +36,47 @@
     font-size: 16px;
     color: #333;
     line-height: 1.6;
+}
+
+/* Медиазапросы для планшетов (макс. ширина 768px) */
+@media (max-width: 768px) {
+    .text-slider-container {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .emoji {
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+
+    .review-title {
+        font-size: 20px;
+    }
+
+    .review-description {
+        font-size: 14px;
+    }
+}
+
+/* Медиазапросы для телефонов (макс. ширина 480px) */
+@media (max-width: 480px) {
+    .text-slider-container {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .emoji {
+        font-size: 35px;
+        margin-bottom: 10px;
+    }
+
+    .review-title {
+        font-size: 18px;
+    }
+
+    .review-description {
+        font-size: 13px;
+        line-height: 1.4;
+    }
 }

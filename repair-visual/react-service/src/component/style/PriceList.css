@@ -1,4 +1,3 @@
-
 .prices-service {
     padding: 20px;
 }
@@ -7,7 +6,8 @@
     max-width: 1200px;
     margin: 0 auto;
 }
-.pricelist-main-text{
+
+.pricelist-main-text {
     color: #fff;
 }
 
@@ -16,68 +16,64 @@
     background-color: #0a2f75;
     padding: 15px 30px;
     left: -50px;
-    border-radius:   0 30px 20px 0;
+    border-radius: 0 30px 20px 0;
 }
-h1{
 
+h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
 /* Заголовок h3, который частично скрыт за экраном */
 .prices-service h3 {
-    left: -50px; /* Сдвиг влево за экран */
-    padding: 15px 30px; /* Поля для текста внутри блока */
-    background-color: #0a2f75; /* Синий фон для заголовка */
-    color: #fff; /* Белый текст */
-    border-radius:   0 30px 0 ; /* Закругленные правые углы */
+    left: -50px;
+    padding: 15px 30px;
+    background-color: #0a2f75;
+    color: #fff;
+    border-radius: 0 30px 0;
     font-size: 20px;
-    /*font-family: var(--fonts-family-serif);*/
     display: inline-block;
-    max-width: calc(100% + 50px); /* Учитываем сдвиг за экран */
+    max-width: calc(100% + 50px);
 }
 
 /* Карточка цены */
 .price-card {
-    margin-bottom: 10px; /* Добавлен отступ между карточками */
+    margin-bottom: 10px;
     padding: 20px;
     border-radius: 8px;
-    background-color: #1a549d; /* Синий цвет карточки */
-    color: black; /* Белый текст */
-    transition: all 0.3s ease; /* Плавный переход для всех изменений */
+    background-color: #1a549d;
+    color: black;
+    transition: all 0.3s ease;
 }
 
-/* Ссылка внутри заголовка карточки */
 .price-card__title a {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
 }
 
-/* Цены в карточке */
 .price-card__footer-price {
     font-size: 18px;
     color: #fff;
 }
 
-/* Выдвижной блок, который появляется при наведении */
 .price-card__active {
-    margin-top: 10px; /* Расстояние между основным блоком и выдвижным блоком */
+    margin-top: 10px;
     padding: 15px;
-    background-color: white; /* Синий фон для выдвижного блока */
+    background-color: white;
     border-radius: 8px;
     text-align: center;
-    visibility: hidden; /* Скрываем блок */
-    max-height: 0; /* Изначальная высота 0 */
-    overflow: hidden; /* Прячем контент */
-    transition: max-height 0.3s ease, visibility 0.3s ease; /* Плавный переход */
+    visibility: hidden;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, visibility 0.3s ease;
 }
 
-/* Стилизация при наведении на карточку */
 .price-card:hover .price-card__active {
-    visibility: visible; /* Делаем видимым */
-    max-height: 100px; /* Высота блока при раскрытии */
+    visibility: visible;
+    max-height: 100px;
 }
 
-/* Основная кнопка */
 .button-default {
     padding: 10px 20px;
     background-color: #fa0;
@@ -89,49 +85,59 @@ h1{
     text-align: center;
 }
 
-/* Альтернативная кнопка */
 .button-default--secondary {
     background-color: #6c757d;
 }
-/* Переменные для отступов */
-:root {
-    --default-margin: 20px; /* Стандартный отступ между элементами */
-    --header-title-margin: 50px; /* Отступ между заголовком и заголовком */
-    --title-form-margin: 40px; /* Отступ между заголовком и формой */
+
+/* Медиазапросы для планшетов (макс. ширина 768px) */
+@media (max-width: 768px) {
+    .colored {
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .prices-service h3 {
+        font-size: 18px;
+        padding: 10px 20px;
+        left: 0;
+    }
+
+    .price-card {
+        padding: 15px;
+    }
+
+    .price-card__footer-price {
+        font-size: 16px;
+    }
 }
 
-/* Применение отступов к элементам */
-body {
-    margin: 0;
-    padding: 0;
-}
+/* Медиазапросы для телефонов (макс. ширина 480px) */
+@media (max-width: 480px) {
+    .colored {
+        padding: 10px;
+        font-size: 16px;
+    }
 
-header {
-    margin-bottom: var(--header-title-margin); /* Отступ между header и title */
-}
+    h1 {
+        font-size: 24px;
+    }
 
-.title-container {
-    margin-bottom: var(--title-form-margin); /* Отступ между title и form */
-}
+    .prices-service h3 {
+        font-size: 16px;
+        padding: 10px;
+        left: 0;
+    }
 
-/* Применение стандартного отступа для всех других элементов */
-.container, .features-container, .services-container, .form-container {
-    margin-bottom: var(--default-margin); /* Стандартный отступ */
-}
+    .price-card {
+        padding: 10px;
+    }
 
-/* Пример других элементов, которые могут нуждаться в отступах */
-.s-advantages-type-5 {
-    margin-bottom: var(--default-margin);
-}
+    .price-card__footer-price {
+        font-size: 14px;
+    }
 
-.features-grid {
-    margin-bottom: var(--default-margin);
-}
-
-.review-slider-container {
-    margin-bottom: var(--default-margin);
-}
-
-.contact-form {
-    margin-bottom: var(--default-margin);
+    .button-default {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
 }

@@ -1,7 +1,7 @@
 import React from 'react';
-import './style/PriceList.css'; // Подключите стили
+import './style/PriceList.css';
 
-// Компонент для отображения отдельной карточки прайса
+
 const PriceCard = ({ title, price, description, link }) => (
     <div className="price-card">
         <div className="price-card__wrapper">
@@ -29,7 +29,7 @@ const PriceCard = ({ title, price, description, link }) => (
     </div>
 );
 
-// Основной компонент для списка прайсов
+
 const PriceList = () => {
     // Данные прайса
     const prices = [
